@@ -1,0 +1,1 @@
+# SessionPlanner-Discord-bot
