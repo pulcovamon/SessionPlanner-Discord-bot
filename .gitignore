@@ -1,3 +1,4 @@
 .envrc
 myenv
 .vscode
+__pycache__
