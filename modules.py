@@ -21,3 +21,10 @@ class SessionPlanner:
             
     def __str__(self) -> str:
         return f"from: {self.calendar[0]}, to: {self.calendar[-1]}"
+    
+    def get_calendar(self):
+        calendar_text = ""
+        space = u"\u00A0"
+        for day in self.calendar:
+            calendar_text += f"{day.day}.{space}{day.month}.{space}{day.year}\n\n"
+        return calendar_text

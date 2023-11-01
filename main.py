@@ -1,11 +1,11 @@
 import discord
 import os
-from datetime import date
+import asyncio
+from datetime import date, datetime
 
 from modules import SessionPlanner
 
-client = discord.Client(intents=discord.Intents(messages=True, guilds=True, message_content=True))
-
+client = discord.Client(intents=discord.Intents(messages=True, guilds=True, message_content=True, ))
 
 @client.event
 async def on_ready():
@@ -31,6 +31,10 @@ async def on_message(message):
             to_date = None
         planner = SessionPlanner(from_date, to_date)
         print(planner)
-        await message.channel.send('Hello!')
+        embed = discord.Embed(title="Vote for next session date!", description=planner.get_calendar(), color=0x206694, timestamp=datetime.today())
+        embed.set_footer(text=f"{message.author}")
+        new_message = await message.channel.send(embed=embed)
+        new_message.add_reaction("✅")
+        await asyncio.sleep(5)
 
 client.run(os.getenv('DISCORD_TOKEN'))
