@@ -3,7 +3,7 @@
 **Params**:
 - -from *\<date>* (optional | default: *tomorrow*)
 - -to *\<date, included>* (optional | default: *tomorrow + 7 days*)  
-**Example**: *$vote -form 21.11.2023 -to 28.11.2023*
+**Example**: *$vote -from 21.11.2023 -to 28.11.2023*
 
 ### $plan
 **Params**
